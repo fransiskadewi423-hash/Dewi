@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontak | SMK Negeri 3 Gunungsitoli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* KONTAK */
+        .kontak {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .kontak h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subjudul {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .kontak-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .info, .form {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .info h3, .form h3 {
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .form input, .form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .form button {
+            background: #ff4b4b;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: #e63b3b;
+        }
+
+        /* MAPS */
+        .maps {
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 10px;
+            margin-top: 40px;
+        }
+
+        /* WHATSAPP BUTTON */
+        .wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .wa:hover {
+            background: #1ebe5d;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .kontak {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kontak">
+        <h2>Hubungi Kami</h2>
+        <p class="subjudul">
+            Silakan hubungi kami untuk informasi lebih lanjut
+        </p>
+
+        <div class="kontak-container">
+
+            <!-- INFO -->
+            <div class="info">
+                <h3>Informasi Sekolah</h3>
+                <p><strong>Alamat:</strong><br>Jl. Laowo, Gunungsitoli</p>
+                <p><strong>Email:</strong><br>smkn3gunungsitoli@gmail.com</p>
+                <p><strong>Telepon:</strong><br>0822-3572-9424</p>
+            </div>
+
+            <!-- FORM -->
+            <div class="form">
+                <h3>Kirim Pesan</h3>
+                <form>
+                    <input type="text" placeholder="Nama Lengkap" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea rows="5" placeholder="Tulis pesan..." required></textarea>
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- MAPS -->
+        <div class="maps">
+            <iframe 
+                src="https://www.google.com/maps?q=SMK+Negeri+3+Gunungsitoli&output=embed"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 SMK Negeri 3 Gunungsitoli | All Rights Reserved
+    </footer>
+
+    <!-- WHATSAPP -->
+    <a class="wa" 
+       href="https://wa.me/6282235729424" 
+       target="_blank">
+       WhatsApp
+    </a>
+
+</body>
+</html>
