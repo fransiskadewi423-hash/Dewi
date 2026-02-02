@@ -1,216 +1,214 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zentropy Clone</title>
-    <style>
-        /* Reset & Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f8faff; color: #333; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: white;
-        }
-        .logo { font-weight: bold; font-size: 24px; color: #0a2540; display: flex; align-items: center; }
-        .logo span { color: #ff3e3e; margin-right: 5px; }
-        .nav-links { list-style: none; display: flex; gap: 20px; }
-        .nav-links a { text-decoration: none; color: #666; font-size: 14px; }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .btn-register { background: #ff3e3e; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+<title>Portofolio</title>
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            padding: 60px 8%;
-            min-height: 80vh;
-            gap: 50px;
-        }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-size: 48px; color: #0a2540; margin-bottom: 20px; line-height: 1.2; }
-        .hero-content p { color: #666; margin-bottom: 30px; line-height: 1.6; max-width: 500px; }
-        
-        .hero-image { flex: 1; position: relative; }
-        .circle-img {
-            width: 400px;
-            height: 400px;
-            background: #ddd;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 10px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .circle-img img { width: 100%; height: 100%; object-fit: cover; }
+<style>
 
-        /* Profile Cards */
-.container {
-    max-width: 1200px;
-    width: 100%;
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
-            padding: 0 8% 50px;
-            margin-top: -50px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            flex: 1;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .card-img { width: 50px; height: 50px; border-radius: 50%; background: #eee; }
-        .card-info h4 { margin-bottom: 5px; color: #333; }
-        .card-info p { font-size: 12px; color: #888; line-height: 1.5; }
-    </style>
+
+/* BACKGROUND */
+body{
+  background:url("backgroundt.jpg") no-repeat center center;
+  background-size:cover;
+  min-height:100vh;
+}
+
+/* OVERLAY */
+.overlay{
+  min-height:100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  padding-top:80px;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:linear-gradient(to right,#ff5ca8,#ff2f92);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+  color:white;
+  z-index:9999;
+}
+
+/* LOGO */
+.nav-logo{
+  font-weight:bold;
+  font-size:20px;
+}
+
+/* TOGGLE */
+.menu-toggle{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* MENU MOBILE */
+.mobile-menu{
+  position:fixed;
+  top:60px;
+  right:0;
+  width:200px;
+  background:#ff2f92;
+  display:none;
+  flex-direction:column;
+  z-index:9999;
+}
+
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  padding:12px;
+  border-top:1px solid rgba(255,255,255,0.3);
+}
+
+.mobile-menu a:hover{
+  background:rgba(255,255,255,0.2);
+}
+
+/* SHOW */
+.mobile-menu.show{
+  display:flex;
+}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* WELCOME */
+.welcome-box{
+  width:100%;
+  overflow:hidden;
+  background:rgba(255,255,255,0.6);
+  border-radius:30px;
+  padding:12px 0;
+  margin:20px auto;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.welcome-text{
+  display:inline-block;
+  white-space:nowrap;
+  font-size:20px;
+  font-weight:bold;
+  color:#000;
+  padding-left:100%;
+  animation:jalan 12s linear infinite;
+}
+
+@keyframes jalan{
+  from{transform:translateX(0);}
+  to{transform:translateX(-100%);}
+}
+
+/* ALBUM */
+.album{
+  background:#fdfaf5;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.4);
+}
+
+/* FOTO */
+.photo{
+  margin-bottom:20px;
+  border:5px solid white;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.photo img{
+  width:100%;
+  display:block;
+}
+
+/* CAPTION */
+.caption{
+  text-align:center;
+  margin-top:10px;
+  font-style:italic;
+  color:#444;
+}
+
+</style>
 </head>
-<body>
 
-    <nav>
-        <div class="logo"><span>●</span> SMK NEGERI 3 GUNUNGSITOLI</div>
-        <ul class="nav-links">
-            <li><a href="galeri.html">Galeri</a></li>
-              <li><a href="tentang.html">Tentang</a></li>
-            <li><a href="#">kontak</a></li>
-            <li><a href="#">kesiswaan</a></li>
-        </ul>
-        <div class="nav-right">
-            <a href="#" style="text-decoration: none; color: #666;"></a>
-            <a href="#" class="btn-register"></a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Dewi mendrofa<br></h1>
-            <p>SMK Negeri 3 Gunungsitoli adalah sekolah menengah kejuruan negeri yang beralamat di Jl. Laowo, Kelurahan Dahana, Kecamatan Gunungsitoli, Kota Gunungsitoli, Provinsi Sumatera Utara, Indonesia. .</p>
-            <a href="#" class="btn-register">Register now →</a>
-        </div>
-        <div class="hero-image">
-            <div class="circle-img">
-                <img src="smk3.jpg" alt="Hero Image">
-            </div>
-        </div>
-    </section>
-
-    <div class="cards-container">
-        <div class="card">
-            <div class=""></div>
-            <div class="card-info">
-                <h4>XII TKJ 2</h4>
-                <p>✓ Kompak &nbsp; ✓ Berprestasi<br>✓ Solid</p>
-            </div>
-        </div>
-        
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navbar Sekolah</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
 <!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">SMKN 3 GUNUNGSITOLI</div>
-  <div class="menu-btn" onclick="toggleMenu()">
-    ☰
-  </div>
-</header>
+<nav class="navbar">
+  <div class="nav-logo">Dewi Fransiska</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
 
-<!-- MENU OVERLAY -->
-<div class="menu-overlay" id="menu">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Tentang</a></li>
-    <li><a href="#">Akademik</a></li>
-    <li><a href="#">Kesiswaan</a></li>
-    <li><a href="#">Galeri</a></li>
-    <li><a href="#">PPDB</a></li>
-    <li><a href="#">Kontak</a></li>
-  </ul>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="galeri.html">Galeri</a>
+  <a href="tentang.html">Tentang</a>
+  <a href="contact.html">Kontak</a>
 </div>
 
-<script src="script.js"></script>
+<!-- OVERLAY -->
+<div class="overlay">
+
+  <div class="container">
+
+    <!-- WELCOME -->
+    <div class="welcome-box">
+      <div class="welcome-text">
+        SELAMAT DATANG DI WEBSITE SAYA 🤍
+      </div>
+    </div>
+
+    <!-- ALBUM -->
+    <div class="album">
+
+      <div class="photo">
+        <img src="ibu.jpg">
+      </div>
+
+      <div class="photo">
+        <img src="pret.jpg" alt="Foto 2">
+      </div>
+
+      <div class="caption">
+        Cerita Tak Terlupa
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- JS MENU -->
+<script>
+function toggleMenu(){
+  document.getElementById("mobileMenu")
+  .classList.toggle("show");
+}
+</script>
+
 </body>
 </html>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background: #f5f5f5;
-}
-
-/* NAVBAR ATAS */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: linear-gradient(135deg, #7b2ff7, #9f67ff);
-  color: white;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.menu-btn {
-  font-size: 28px;
-  cursor: pointer;
-}
-
-/* MENU OVERLAY */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #7b2ff7, #9f67ff);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateY(-100%);
-  transition: 0.4s ease;
-  z-index: 1000;
-}
-
-.menu-overlay.active {
-  transform: translateY(0);
-}
-
-.menu-overlay ul {
-  list-style: none;
-  text-align: center;
-}
-
-.menu-overlay ul li {
-  margin: 15px 0;
-}
-
-.menu-overlay ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
-}

@@ -1,63 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Galeri Foto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
+<meta charset="UTF-8">
+<title>Galeri Kenangan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        h1 {
-            text-align: center;
-        }
+<style>
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: url("bejeng.jpg") no-repeat center center;
+  background-size: cover;
+  min-height:100vh;
+}
 
-        .gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+/* LAPISAN GELAP */
+.overlay{
+  background: rgba(0,0,0,0.5);
+  min-height:100vh;
+  padding:20px;
+}
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-    </style>
+/* JUDUL */
+h1{
+  text-align:center;
+  color:white;
+}
+
+/* TOMBOL MUSIK */
+.music-btn{
+  display:block;
+  margin:15px auto;
+  padding:10px 25px;
+  background:#ff69b4;
+  border:none;
+  border-radius:25px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* GALERI */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:15px;
+  max-width:500px;
+  margin:auto;
+}
+
+.gallery img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.4s;
+  box-shadow:0 5px 10px rgba(0,0,0,0.5);
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* FULLSCREEN */
+.fullscreen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.fullscreen img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:15px;
+}
+
+.fullscreen span{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
+
+/* VIDEO */
+.videos{
+  max-width:500px;
+  margin:30px auto;
+  display:grid;
+  gap:20px;
+}
+
+.videos video{
+  width:100%;
+  border-radius:15px;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:white;
+  margin-top:25px;
+  font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
 
-    <h1>Galeri Foto</h1>
+<div class="overlay">
 
-    <div class="gallery☆">
-        <img src="megg.jpg" alt="Foto 2">
-        <img src="pa tt.jpg" alt="Foto 3">
-        <img src="mek.jpg" alt="Foto 4">
-        <img src="jepp.jpg" alt="Foto 5">
-        <img src="futsal.jpg" alt="Foto 6">
-    </div>
+<h1>💗 Galeri Kenangan 💗</h1>
+
+<!-- MUSIK -->
+<audio id="music" loop>
+  <source src="kita.mp4" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">
+  ▶️ Play Musik
+</button>
+
+<!-- GALERI -->
+<div class="gallery">
+
+  <img src="megg.jpg" onclick="openImg(this)">
+  <img src="ema.jpeg" onclick="openImg(this)">
+  <img src="rek.jpg" onclick="openImg(this)">
+  <img src="jepp.jpg" onclick="openImg(this)">
+  <img src="men.jpg" onclick="openImg(this)">
+  <img src="futsal.jpg" onclick="openImg(this)">
+  <img src="puk.jpg" onclick="openImg(this)">
+  <img src="tam.jpg" onclick="openImg(this)">
+
+</div>
+
+<!-- VIDEO -->
+<div class="videos">
+
+  <video controls>
+    <source src="kenangan.mp4" type="video/mp4">
+  </video>
+
+  <video controls>
+    <source src="ibu.mp4" type="video/mp4">
+  </video>
+
+</div>
+
+<footer>
+  © 2026 SMK Negeri 3 Gunungsitoli
+</footer>
+
+</div>
+
+<!-- FULLSCREEN -->
+<div class="fullscreen" id="fs">
+  <span onclick="closeImg()">✖</span>
+  <img id="fsImg">
+</div>
+
+<script>
+
+let music = document.getElementById("music");
+let btn = document.querySelector(".music-btn");
+let playing = false;
+
+/* Autoplay setelah disentuh */
+document.body.addEventListener("click", function(){
+  if(!playing){
+    music.play();
+    btn.innerHTML = "⏸️ Pause Musik";
+    playing = true;
+  }
+}, { once:true });
+
+/* Tombol musik */
+function toggleMusic(){
+
+  if(!playing){
+    music.play();
+    btn.innerHTML = "⏸️ Pause Musik";
+    playing = true;
+  }else{
+    music.pause();
+    btn.innerHTML = "▶️ Play Musik";
+    playing = false;
+  }
+
+}
+
+/* Fullscreen foto */
+let fs = document.getElementById("fs");
+let fsImg = document.getElementById("fsImg");
+
+function openImg(img){
+  fs.style.display = "flex";
+  fsImg.src = img.src;
+}
+
+function closeImg(){
+  fs.style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
-
-<body>
-    <h1 class="judul">Galeri Foto</h1>
-
-    <div class="galeri">
-        <img src="megg.jpg">
-        <img src="pa tt.jpg">
-        <img src="mek.jpg">
-        <img src="jepp.jpg">
-    </div>
-</body>
